@@ -94,7 +94,7 @@ La talla será un string que podrá ser "XS", "S", "M", "L", "XL".
 [Modelo y vista con enum](enum.md)
 
 
-## Subida de imagenes
+## Subida de imagenes
 - Puedes utilizar Cloudinary como proveedor externo de almacenamiento.
 - Sube la imagen al panel de Cloudinary o mediante su API.
 - Copia la URL que te devuelve la plataforma.
