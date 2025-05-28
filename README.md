@@ -213,7 +213,7 @@ router.delete('/products/:id', async (req, res) => {
 ```
 
 ## BONUS
-## Bonus 1 - API 
+## Bonus 1 - API (OBLIGATORIO)
 
 Para poder usar la aplicación con un frontend en React, vamos a crear una API que haga las mismas operaciones que el controlador de productos, pero que devuelva los datos en formato JSON. Piensa como deberían ser esas rutas y controladores.
 
