@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const connectDB = require('./config/db');
-const productRoutes = require('./routes/productRoutes');
-const authRoutes = require('./routes/authRoutes');
+const connectDB = require('./tienda-de- ropa/config/db');
+const productRoutes = require('./tienda-de- ropa/routes/productRoutes');
+const authRoutes = require('./tienda-de- ropa/routes/authRoutes');
 
 const app = express();
 
