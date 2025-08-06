@@ -1,40 +1,29 @@
 require('dotenv').config();
 const express = require('express');
-const methodOverride = require('method-override');
-const session = require('express-session');
-const connectDB = require('./tienda-de- ropa/config/db');
-const productRoutes = require('./tienda-de- ropa/routes/productRoutes');
-const authRoutes = require('./tienda-de- ropa/routes/authRoutes');
+const mongoose = require('mongoose');
 
 const app = express();
 
-connectDB();
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(methodOverride('_method'));
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-
-
-app.use(express.static('public'));
-
-
-app.use('/products', productRoutes);
-app.use('/auth', authRoutes);
-
-
-app.get('/', (req, res) => {
-  res.redirect('/products');
+// Conectar a MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('¡Conectado a MongoDB!');
+}).catch((error) => {
+  console.error('Error con MongoDB:', error.message);
 });
 
+// Hacer que el servidor entienda mensajes
+app.use(express.json());
 
+// Una página para probar
+app.get('/', (req, res) => {
+  res.send('¡Mi tienda funciona!');
+});
+
+// Encender el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor encendido en http://localhost:${PORT}`);
 });
